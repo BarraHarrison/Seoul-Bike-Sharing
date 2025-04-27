@@ -1,3 +1,4 @@
 venv/
 .DS_Store
 SeoulBikeData.csv
+.ipynb_checkpoints/
