@@ -26,22 +26,30 @@ season_option = st.sidebar.multiselect("Seasons", df['Seasons'].unique(), defaul
 
 filtered_df = df[(df['Year'] == year_option) & (df['Seasons'].isin(season_option))]
 
-st.subheader("📈 Average Rentals by Hour")
-hourly_avg = filtered_df.groupby('Hour')['Rented Bike Count'].mean().reset_index()
-fig1, ax1 = plt.subplots()
-sns.lineplot(data=hourly_avg, x='Hour', y='Rented Bike Count', marker='o', ax=ax1)
-st.pyplot(fig1)
 
-st.subheader("📅 Average Rentals by Month")
-monthly_avg = filtered_df.groupby('Month')['Rented Bike Count'].mean().reset_index()
-fig2, ax2 = plt.subplots()
-sns.barplot(data=monthly_avg, x='Month', y='Rented Bike Count', ax=ax2)
-ax2.set_xticks(range(1,13))
-st.pyplot(fig2)
+tab1, tab2, tab3 = st.tabs(["⏰ Hourly Trends", "📅 Monthly Trends", "🗓️ Day of Week Trends"])
 
-st.subheader("🗓️ Average Rentals by Day of Week")
-day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-dow_avg = filtered_df.groupby('Day of Week')['Rented Bike Count'].mean().reindex(day_order).reset_index()
-fig3, ax3 = plt.subplots()
-sns.barplot(data=dow_avg, x='Day of Week', y='Rented Bike Count', ax=ax3)
-st.pyplot(fig3)
+with tab1:
+    st.subheader("📈 Average Rentals by Hour")
+    hourly_avg = filtered_df.groupby('Hour')['Rented Bike Count'].mean().reset_index()
+    fig1, ax1 = plt.subplots()
+    sns.lineplot(data=hourly_avg, x='Hour', y='Rented Bike Count', marker='o', ax=ax1)
+    st.pyplot(fig1)
+
+
+with tab2:
+    st.subheader("📅 Average Rentals by Month")
+    monthly_avg = filtered_df.groupby('Month')['Rented Bike Count'].mean().reset_index()
+    fig2, ax2 = plt.subplots()
+    sns.barplot(data=monthly_avg, x='Month', y='Rented Bike Count', ax=ax2)
+    ax2.set_xticks(range(1,13))
+    st.pyplot(fig2)
+
+
+with tab3:
+    st.subheader("🗓️ Average Rentals by Day of Week")
+    day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    dow_avg = filtered_df.groupby('Day of Week')['Rented Bike Count'].mean().reindex(day_order).reset_index()
+    fig3, ax3 = plt.subplots()
+    sns.barplot(data=dow_avg, x='Day of Week', y='Rented Bike Count', ax=ax3)
+    st.pyplot(fig3)
