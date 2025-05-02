@@ -90,6 +90,31 @@ The dataset includes **hourly bike rental counts** along with corresponding **we
 
 ---
 
+## 🚀 Run the Dashboard
+
+To launch the interactive Streamlit dashboard:
+
+1. Make sure you're in the project folder:
+
+   ```bash
+   cd seoul-bike-sharing
+   ```
+
+2. Run the Streamlit app:
+
+   ```bash
+   streamlit run app.py
+   ```
+
+3. Your browser will automatically open the dashboard at:
+   ```
+   http://localhost:8501
+   ```
+
+Make sure you have the `SeoulBikeData.csv` file in the same directory.
+
+---
+
 ## 📌 Technologies Used
 
 - Python 3.9
@@ -97,6 +122,7 @@ The dataset includes **hourly bike rental counts** along with corresponding **we
 - Seaborn, Matplotlib
 - Scikit-learn (for Random Forest)
 - Jupyter Lab
+- Streamlit
 
 ---
 
@@ -105,12 +131,10 @@ The dataset includes **hourly bike rental counts** along with corresponding **we
 **Barra Harrison**\
 Junior Data Scientist | Full-Stack Developer\
 🔗 [LinkedIn](https://www.linkedin.com/in/barraharrison20091997/)\
-🔗 [GitH](https://github.com/BarraHarrison)[u](https://github.com/BarraHarrison)[b](https://github.com/BarraHarrison) 
+🔗 [GitHub](https://github.com/BarraHarrison)
 
 ---
 
 ## 🏁 Future Improvements
 
 - Add predictive modeling section (e.g., XGBoost, time series forecasting)
-- Deploy key findings on a Streamlit dashboard
-
